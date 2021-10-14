@@ -37,12 +37,10 @@ public class HabitPage {
     }
 
     public void checkHabitReminder(String reminder){
-        System.out.println("habitReminder" + habitReminder.getText());
         habitReminder.shouldHave(Condition.text(reminder));
     }
 
     public void checkHabitFrequency(String frequency){
-        System.out.println("habitFrequency" + habitFrequency.getText());
         habitFrequency.shouldHave(Condition.text(frequency));
     }
 

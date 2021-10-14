@@ -84,7 +84,7 @@ gradle clean test -DdeviceHost=browserstack
 
 ### Video
 
-![video](./img/video-bs.mp4)
+![video](./img/video-bs.gif)
 
 ## Allure TestOps
 

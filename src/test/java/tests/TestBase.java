@@ -32,7 +32,6 @@ public class TestBase {
         Configuration.browserSize = null;
         Configuration.timeout = 10000;
         deviceHost = System.getProperty("deviceHost");
-       // deviceHost = "emulator";
         switch (deviceHost){
             case "browserstack": Configuration.browser = BrowserstackMobileDriver.class.getName();
                 break;
@@ -54,7 +53,6 @@ public class TestBase {
         String sessionId = getSessionId();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        System.out.println("СЕССИЯ" + sessionId);
         closeWebDriver();
         switch (deviceHost){
             case "browserstack": Attach.attachVideo(sessionId);
