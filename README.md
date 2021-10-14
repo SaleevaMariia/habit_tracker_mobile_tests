@@ -81,3 +81,7 @@ gradle clean test -DdeviceHost=browserstack
 ### Test with steps, attached image, console logs
 
 ![selenoid_screen](./img/selenoid_screen.png)
+
+### Video
+
+![video](./img/video.mp4)

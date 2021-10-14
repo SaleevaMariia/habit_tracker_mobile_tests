@@ -57,7 +57,6 @@ public class TestBase {
 
         closeWebDriver();
         switch (deviceHost){
-            case "selenoid":
             case "browserstack": Attach.attachVideo(sessionId);
         }
 
