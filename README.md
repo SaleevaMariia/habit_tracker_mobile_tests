@@ -84,4 +84,24 @@ gradle clean test -DdeviceHost=browserstack
 
 ### Video
 
-![video](./img/video.mp4)
+![video](./img/video-bs.mp4)
+
+## Allure TestOps
+
+## Launches
+
+![launches](./img/launches.png)
+
+## Test Cases
+
+![test-case](./img/test-case.png)
+
+## Jira integration
+
+![jira](./img/jira.png)
+
+## Telegram report
+
+![telegram](./img/telegram.png)
+
+

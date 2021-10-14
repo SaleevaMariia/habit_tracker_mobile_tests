@@ -54,7 +54,7 @@ public class TestBase {
         String sessionId = getSessionId();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-
+        System.out.println("СЕССИЯ" + sessionId);
         closeWebDriver();
         switch (deviceHost){
             case "browserstack": Attach.attachVideo(sessionId);
