@@ -16,7 +16,6 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.Attach.getSessionId;
-import static io.qameta.allure.Allure.step;
 
 
 public class TestBase {
@@ -39,7 +38,7 @@ public class TestBase {
                 break;
             case "selenoid": Configuration.browser = SelenoidMobileDriver.class.getName();
                 break;
-            case "real":
+            case "realDevice":
             case "emulator": Configuration.browser = AndroidMobileDriver.class.getName();
                 break;
             default: throw new RuntimeException("no such deviceHost" + deviceHost);

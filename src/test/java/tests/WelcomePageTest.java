@@ -1,5 +1,8 @@
 package tests;
 
+import allure.JiraIssue;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -8,13 +11,15 @@ import tests.pages.WelcomePage;
 
 import static io.qameta.allure.Allure.step;
 
-
+@Tag("mobile")
+@Owner("saleevamo")
+@JiraIssue("HOMEWORK-245")
+@Story("Go through welcome page")
 public class WelcomePageTest extends TestBase{
 
     private WelcomePage welcomePage = new WelcomePage();
     private ListOfHabitsPage listOfHabitsPage = new ListOfHabitsPage();
 
-   // @Tag("selenide_android")
     @Test
     public void goThroughWelcomePagePages(){
         step("Determine whether the application is open for the first time or not", () -> {

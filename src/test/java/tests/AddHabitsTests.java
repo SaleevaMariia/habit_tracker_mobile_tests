@@ -1,6 +1,10 @@
 package tests;
 
+import allure.JiraIssue;
 import dictionaries.MeasurableFrequencies;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.pages.AddMeasurableHabitPage;
@@ -10,20 +14,26 @@ import tests.pages.ListOfHabitsPage;
 
 import static io.qameta.allure.Allure.step;
 
-//@Tag("selenide_android")
-public class AddHabitsTests extends TestBase{
+@Tag("mobile")
+@Owner("saleevamo")
+@Story("Create new habit")
+@JiraIssue("HOMEWORK-244")
+public class AddHabitsTests extends TestBase {
 
     private ListOfHabitsPage listOfHabitsPage = new ListOfHabitsPage();
     private AddYesNoHabitPage addYesNoHabitPage = new AddYesNoHabitPage();
     private HabitPage habitPage = new HabitPage();
     private AddMeasurableHabitPage addMeasurableHabitPage = new AddMeasurableHabitPage();
 
-    // @Tag("selenide_android")
-    @Test
-    void addYesNoHabitWithName(){
+    @BeforeEach
+    public void initStep() {
         step("Go to the screen with list of habits", () -> {
             listOfHabitsPage = goToListOfHabitsPage();
         });
+    }
+
+    @Test
+    void addYesNoHabitWithName() {
         step("Click to add Yes/No habit", () -> {
             addYesNoHabitPage = listOfHabitsPage.clickAddYNHabit();
         });
@@ -39,12 +49,8 @@ public class AddHabitsTests extends TestBase{
         });
     }
 
-    // @Tag("selenide_android")
     @Test
     void addYesNoHabitWithFrequency5TimesPerWeekReminder(){
-        step("Go to the screen with list of habits", () -> {
-            listOfHabitsPage = goToListOfHabitsPage();
-        });
         step("Click to add Yes/No habit", () -> {
             addYesNoHabitPage = listOfHabitsPage.clickAddYNHabit();
         });
@@ -63,12 +69,8 @@ public class AddHabitsTests extends TestBase{
         });
     }
 
-    // @Tag("selenide_android")
     @Test
     void addYesNoHabitWithFrequencyEvery2DaysReminderAndQuestion(){
-        step("Go to the screen with list of habits", () -> {
-            listOfHabitsPage = goToListOfHabitsPage();
-        });
         step("Click to add Yes/No habit", () -> {
             addYesNoHabitPage = listOfHabitsPage.clickAddYNHabit();
         });
@@ -88,12 +90,8 @@ public class AddHabitsTests extends TestBase{
         });
     }
 
-    // @Tag("selenide_android")
     @Test
     void addYesNoHabitWithFrequencyEveryDaysQuestionNotesColor(){
-        step("Go to the screen with list of habits", () -> {
-            listOfHabitsPage = goToListOfHabitsPage();
-        });
         step("Click to add Yes/No habit", () -> {
             addYesNoHabitPage = listOfHabitsPage.clickAddYNHabit();
         });
@@ -116,12 +114,8 @@ public class AddHabitsTests extends TestBase{
         });
     }
 
-    // @Tag("selenide_android")
     @Test
     void negAddYesNoHabitWithoutName(){
-        step("Go to the screen with list of habits", () -> {
-            listOfHabitsPage = goToListOfHabitsPage();
-        });
         step("Click to add Yes/No habit", () -> {
             addYesNoHabitPage = listOfHabitsPage.clickAddYNHabit();
         });
@@ -137,9 +131,6 @@ public class AddHabitsTests extends TestBase{
     @Tag("selenide_android")
     @Test
     void addMeasurableHabitWithNameTarget(){
-        step("Go to the screen with list of habits", () -> {
-            listOfHabitsPage = goToListOfHabitsPage();
-        });
         step("Click to measurable habit", () -> {
             addMeasurableHabitPage = listOfHabitsPage.clickAddMeasurableHabit();
         });
@@ -159,9 +150,6 @@ public class AddHabitsTests extends TestBase{
     @Tag("selenide_android")
     @Test
     void addMeasurableHabitWithEveryMonthFrequencyQuestionColorUnitNotes(){
-        step("Go to the screen with list of habits", () -> {
-            listOfHabitsPage = goToListOfHabitsPage();
-        });
         step("Click to measurable habit", () -> {
             addMeasurableHabitPage = listOfHabitsPage.clickAddMeasurableHabit();
         });
@@ -186,12 +174,8 @@ public class AddHabitsTests extends TestBase{
         });
     }
 
-    //@Tag("selenide_android")
     @Test
     void addMeasurableHabitWithEveryDayFrequencyQuestionUnitReminder(){
-        step("Go to the screen with list of habits", () -> {
-            listOfHabitsPage = goToListOfHabitsPage();
-        });
         step("Click to measurable habit", () -> {
             addMeasurableHabitPage = listOfHabitsPage.clickAddMeasurableHabit();
         });
@@ -215,12 +199,8 @@ public class AddHabitsTests extends TestBase{
         });
     }
 
-   // @Tag("selenide_android")
     @Test
     void negAddMeasurableHabitWithoutNameTarget(){
-        step("Go to the screen with list of habits", () -> {
-            listOfHabitsPage = goToListOfHabitsPage();
-        });
         step("Click to measurable habit", () -> {
             addMeasurableHabitPage = listOfHabitsPage.clickAddMeasurableHabit();
         });
