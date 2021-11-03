@@ -9,8 +9,8 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import tests.pages.ListOfHabitsPage;
-import tests.pages.WelcomePage;
+import pages.ListOfHabitsPage;
+import pages.WelcomePage;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
@@ -22,18 +22,19 @@ public class TestBase {
 
     public static String deviceHost;
     public static boolean onboardingSettingPlaced = false;
-    private WelcomePage welcomePage = new WelcomePage();
-    private ListOfHabitsPage listOfHabitsPage = new ListOfHabitsPage();
+    protected WelcomePage welcomePage = new WelcomePage();
+    protected ListOfHabitsPage listOfHabitsPage = new ListOfHabitsPage();
 
     @BeforeAll
-    public static void setup(){
+    public static void setup() {
         addListener("allure", new AllureSelenide());
         Configuration.startMaximized = false;
         Configuration.browserSize = null;
         Configuration.timeout = 10000;
         deviceHost = System.getProperty("deviceHost");
-        switch (deviceHost){
-            case "browserstack": Configuration.browser = BrowserstackMobileDriver.class.getName();
+        switch (deviceHost) {
+            case "browserstack":
+                Configuration.browser = BrowserstackMobileDriver.class.getName();
                 break;
             case "selenoid": Configuration.browser = SelenoidMobileDriver.class.getName();
                 break;
@@ -57,17 +58,5 @@ public class TestBase {
         switch (deviceHost){
             case "browserstack": Attach.attachVideo(sessionId);
         }
-
-    }
-
-    protected ListOfHabitsPage goToListOfHabitsPage(){
-        if ( listOfHabitsPage.isOnListOfHabitsPage())
-                onboardingSettingPlaced = true;
-        if(!onboardingSettingPlaced) {
-                welcomePage = welcomePage.clickNext();
-                welcomePage = welcomePage.clickNext();
-                welcomePage.clickDone();
-        }
-        return new ListOfHabitsPage();
     }
 }

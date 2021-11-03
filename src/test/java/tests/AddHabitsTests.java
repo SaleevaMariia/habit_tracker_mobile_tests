@@ -7,11 +7,11 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import tests.pages.AddMeasurableHabitPage;
-import tests.pages.AddYesNoHabitPage;
-import tests.pages.HabitPage;
-import tests.pages.ListOfHabitsPage;
+import pages.AddMeasurableHabitPage;
+import pages.AddYesNoHabitPage;
+import pages.HabitPage;
 
+import static helpers.Utils.goToListOfHabitsPage;
 import static io.qameta.allure.Allure.step;
 
 @Tag("mobile")
@@ -20,7 +20,6 @@ import static io.qameta.allure.Allure.step;
 @JiraIssue("HOMEWORK-244")
 public class AddHabitsTests extends TestBase {
 
-    private ListOfHabitsPage listOfHabitsPage = new ListOfHabitsPage();
     private AddYesNoHabitPage addYesNoHabitPage = new AddYesNoHabitPage();
     private HabitPage habitPage = new HabitPage();
     private AddMeasurableHabitPage addMeasurableHabitPage = new AddMeasurableHabitPage();
@@ -28,7 +27,7 @@ public class AddHabitsTests extends TestBase {
     @BeforeEach
     public void initStep() {
         step("Go to the screen with list of habits", () -> {
-            listOfHabitsPage = goToListOfHabitsPage();
+            listOfHabitsPage = goToListOfHabitsPage(listOfHabitsPage, welcomePage);
         });
     }
 
@@ -128,7 +127,6 @@ public class AddHabitsTests extends TestBase {
         });
     }
 
-    @Tag("selenide_android")
     @Test
     void addMeasurableHabitWithNameTarget(){
         step("Click to measurable habit", () -> {
@@ -147,7 +145,6 @@ public class AddHabitsTests extends TestBase {
         });
     }
 
-    @Tag("selenide_android")
     @Test
     void addMeasurableHabitWithEveryMonthFrequencyQuestionColorUnitNotes(){
         step("Click to measurable habit", () -> {

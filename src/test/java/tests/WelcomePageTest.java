@@ -6,8 +6,6 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import tests.pages.ListOfHabitsPage;
-import tests.pages.WelcomePage;
 
 import static io.qameta.allure.Allure.step;
 
@@ -17,13 +15,10 @@ import static io.qameta.allure.Allure.step;
 @Story("Go through welcome page")
 public class WelcomePageTest extends TestBase{
 
-    private WelcomePage welcomePage = new WelcomePage();
-    private ListOfHabitsPage listOfHabitsPage = new ListOfHabitsPage();
-
     @Test
     public void goThroughWelcomePagePages(){
         step("Determine whether the application is open for the first time or not", () -> {
-            if ( listOfHabitsPage.isOnListOfHabitsPage()){
+            if (listOfHabitsPage.isOnListOfHabitsPage()) {
                 onboardingSettingPlaced = true;
             }
         });

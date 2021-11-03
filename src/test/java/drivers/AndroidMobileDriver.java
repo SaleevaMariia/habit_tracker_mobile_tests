@@ -26,7 +26,6 @@ public class AndroidMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
-
         desiredCapabilities.setCapability("platformName", config.getPlatformName());
         desiredCapabilities.setCapability("deviceName",config.getDeviceName());
         desiredCapabilities.setCapability("version", config.getVersionName());
@@ -36,23 +35,12 @@ public class AndroidMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("appActivity", config.getAppActivity());
         desiredCapabilities.setCapability("app", getAbsolutePath(config.getApp()));
 
-        /*desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("deviceName","Pixel 4 API 30");
-        desiredCapabilities.setCapability("version", "11.0");
-        desiredCapabilities.setCapability("appPackage", "org.isoron.uhabits");
-        desiredCapabilities.setCapability("locale", "en");
-        desiredCapabilities.setCapability("language", "en");
-        desiredCapabilities.setCapability("appActivity", "org.isoron.uhabits.MainActivity");
-        desiredCapabilities.setCapability("app", getAbsolutePath(config.getApp()));*/
-
         return new AndroidDriver(getAppiumUrl(), desiredCapabilities);
     }
 
     private String getAbsolutePath(String filePath) {
-        //filePath = "src/test/resources/loop-2.0.3-release.apk";
         File file = new File(filePath);
         assertTrue(file.exists(), filePath + " not found");
-
         return file.getAbsolutePath();
     }
 }

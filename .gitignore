@@ -39,4 +39,3 @@ src/test/java/cloud.autotests/docs/
 /gradlew
 /gradlew.bat
 .todo
-*.properties

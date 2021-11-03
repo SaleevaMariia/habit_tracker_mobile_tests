@@ -10,7 +10,5 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.TYPE})
 @LabelAnnotation(name = "jira")
 public @interface JiraIssue {
-
     String value();
-
 }
